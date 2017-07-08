@@ -90,7 +90,7 @@ module.exports = NodeHelper.create({
             }
 
         } else if (notification === 'SEQUENCE') {
-            let iterations = 2;
+            let iterations = 1;
             let sequence   = payload;
             let delay      = 0;
 
@@ -214,7 +214,7 @@ module.exports = NodeHelper.create({
      * @param {Integer} [speed]
      * @param {Integer} [delay]
      */
-    pulse: function (red, green, blue, iterations, speed, delay) {
+    pulse: function (red, blue, green, iterations, speed, delay) {
         delay = delay || 1;
 
         let self = this;
