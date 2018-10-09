@@ -146,8 +146,8 @@ module.exports = NodeHelper.create({
                 case 'pink_pulse':
                     colors = [255, 0, 255];
                     break;
-				case 'fillRGB':
-					colors = [40,40,40];
+				case 'backfill':
+					colors = [45,30,0];
 					resolve(self.fillRGB(colors[0], colors[1], colors[2]));
 					break;
 				case 'off':
@@ -242,7 +242,7 @@ module.exports = NodeHelper.create({
      * @param b
      * @param g
      */
-    fillRGB: function(r, b, g) {
+    fillRGB: function(r, g, b) {
         if (this.leds) {
             this.switchAnimation(() => {
                 this.leds.fillRGB(r, b, g);
@@ -269,7 +269,7 @@ module.exports = NodeHelper.create({
      * @param {Integer} [iterations]
      * @param {Integer} [speed]
      */
-    flashEffect: function (r, b, g, iterations, speed) {
+    flashEffect: function (r, g, b, iterations, speed) {
         let self = this;
         let step = 0.05;
         let total_iterations = 0;
