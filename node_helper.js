@@ -146,7 +146,14 @@ module.exports = NodeHelper.create({
                 case 'pink_pulse':
                     colors = [255, 0, 255];
                     break;
-                default:
+				case 'fillRGB':
+					colors = [40,40,40];
+					resolve(self.fillRGB(colors[0], colors[1], colors[2]));
+					break;
+				case 'off':
+					resolve(self.off());
+					break;
+				default:
                     reject(new Error('Unknown sequence: ' + sequence));
                     return;
                     break;
@@ -208,8 +215,8 @@ module.exports = NodeHelper.create({
     /**
      *
      * @param {Integer} red
-     * @param {Integer} green
      * @param {Integer} blue
+     * @param {Integer} green
      * @param {Integer} [iterations]
      * @param {Integer} [speed]
      * @param {Integer} [delay]
@@ -232,14 +239,14 @@ module.exports = NodeHelper.create({
     /**
      *
      * @param r
-     * @param g
      * @param b
+     * @param g
      */
-    fillRGB: function(r, g, b) {
+    fillRGB: function(r, b, g) {
         if (this.leds) {
             this.switchAnimation(() => {
-                this.leds.fillRGB(r, g, b);
-                this.stopAnimation();
+                this.leds.fillRGB(r, b, g);
+                //this.stopAnimation();
             });
         }
     },
@@ -257,12 +264,12 @@ module.exports = NodeHelper.create({
     /**
      *
      * @param {Integer} r
-     * @param {Integer} g
      * @param {Integer} b
+     * @param {Integer} g
      * @param {Integer} [iterations]
      * @param {Integer} [speed]
      */
-    flashEffect: function (r, g, b, iterations, speed) {
+    flashEffect: function (r, b, g, iterations, speed) {
         let self = this;
         let step = 0.05;
         let total_iterations = 0;
@@ -299,8 +306,8 @@ module.exports = NodeHelper.create({
             self.leds.setMasterBrightness(level);
             self.leds.fill(new Color({
                 r: r,
-                g: g,
-                b: b
+                b: b,
+                g: g
             }));
 
             setTimeout(performStep, speed);
