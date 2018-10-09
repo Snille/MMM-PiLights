@@ -24,7 +24,7 @@ Clone the module and npm install:
 
 ```bash
 cd ~/MagicMirror/modules
-git clone https://github.com/jc21/MMM-PiLights.git
+git clone git@github.com:Snille/MMM-PiLights.git
 cd MMM-PiLights
 npm install
 ```
@@ -37,6 +37,7 @@ modules: [
         module: 'MMM-PiLights',
         config: {
             ledCount: 64,
+            type: "lpd8806",
             device: '/dev/spidev0.0'
         }
     }
@@ -105,5 +106,7 @@ curl -X GET "http://yourmagicmirror/PiLights?sequence=blue_pulse"
 - green_pulse
 - orange_pulse
 - pink_pulse
+- off
+- fillRGB (fills with dimmed white (temporary))
 
 More to come later.
