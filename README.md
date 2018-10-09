@@ -107,6 +107,6 @@ curl -X GET "http://yourmagicmirror/PiLights?sequence=blue_pulse"
 - orange_pulse
 - pink_pulse
 - off
-- fillRGB (fills with dimmed white (temporary))
+- backfill (fills with dimmed warm white (temporary))
 
 More to come later.
