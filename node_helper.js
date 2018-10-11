@@ -146,14 +146,14 @@ module.exports = NodeHelper.create({
                 case 'pink_pulse':
                     colors = [255, 0, 255];
                     break;
-				case 'backfill':
-					colors = [45,30,0];
-					resolve(self.fillRGB(colors[0], colors[1], colors[2]));
-					break;
-				case 'off':
-					resolve(self.off());
-					break;
-				default:
+                case 'backfill':
+                    colors = [45,30,0];
+                    resolve(self.fillRGB(colors[0], colors[1], colors[2]));
+                    break;
+/*                case 'off':
+                    resolve(self.off());
+                    break;*/
+                default:
                     reject(new Error('Unknown sequence: ' + sequence));
                     return;
                     break;
